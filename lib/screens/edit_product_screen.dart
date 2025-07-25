@@ -32,7 +32,6 @@ class _EditProductScreenState extends State<EditProductScreen> {
     _priceController =
         TextEditingController(text: widget.product.price.toString());
 
-    // Add listeners to detect changes
     _productCodeController.addListener(_onFieldChanged);
     _productNameController.addListener(_onFieldChanged);
     _priceController.addListener(_onFieldChanged);
@@ -86,7 +85,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
 
       if (response.success) {
         _showSnackBar('Product updated successfully!', Colors.green);
-        Navigator.of(context).pop(true); // Return true to indicate success
+        Navigator.of(context).pop(true);
       } else {
         String errorMessage = response.message;
         if (response.errors.isNotEmpty) {

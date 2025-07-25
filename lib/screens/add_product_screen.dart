@@ -45,7 +45,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
 
       if (response.success) {
         _showSnackBar('Product added successfully!', Colors.green);
-        Navigator.of(context).pop(true); // Return true to indicate success
+        Navigator.of(context).pop(true);
       } else {
         String errorMessage = response.message;
         if (response.errors.isNotEmpty) {

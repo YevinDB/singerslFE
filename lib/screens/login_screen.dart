@@ -18,7 +18,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   void initState() {
     super.initState();
-    // Pre-fill with default credentials for demo
+    // Pre-fill with demo credentials
     _usernameController.text = 'admin';
     _passwordController.text = 'admin123';
   }

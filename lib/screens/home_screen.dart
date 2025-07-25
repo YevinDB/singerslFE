@@ -57,22 +57,6 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   }
 
-  // void _filterProducts(String query) {
-  //   setState(() {
-  //     _searchQuery = query;
-  //     if (query.isEmpty) {
-  //       _filteredProducts = _products;
-  //     } else {
-  //       _filteredProducts = _products.where((product) {
-  //         return product.productCode
-  //                 .toLowerCase()
-  //                 .contains(query.toLowerCase()) ||
-  //             product.productName.toLowerCase().contains(query.toLowerCase());
-  //       }).toList();
-  //     }
-  //   });
-  // }
-
   Future<void> _filterProducts(String query) async {
     setState(() {
       _searchQuery = query;
@@ -80,12 +64,10 @@ class _HomeScreenState extends State<HomeScreen> {
     });
 
     try {
-      // Use the API search with the query
       final response = await _productService.searchProducts(query);
       if (response.success && response.data != null) {
         setState(() {
           _filteredProducts = response.data!;
-          // Update the main products list if it's a fresh search
           if (query.isEmpty) {
             _products = response.data!;
           }
